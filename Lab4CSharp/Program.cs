@@ -1,42 +1,36 @@
-﻿// See https://aka.ms/new-console-template for more information
-/// <summary>
-///  Top-level statements 
-///  Код програми (оператори)  вищого рівня
-/// </summary>
-///
-Console.WriteLine("Lab4 C# ");
-AnyFunc();
+﻿namespace Lab4CSharp;
 
-/// <summary>
-/// 
-///  Top-level statements must precede namespace and type declarations.
-/// At the top-level methods/functions can be defined and used
-/// На верхньому рівні можна визначати та використовувати методи/функції
-/// </summary>
-void AnyFunc()
+internal class Program
 {
-    Console.WriteLine(" Some function in top-level");
+    static void Main(string[] args)
+    {
+        Console.WriteLine("1. Trapeze");
+        Console.WriteLine("2. ");
+        Console.WriteLine("3. ");
+
+        try
+        {
+            Console.Write("Choose a task 1-3: ");
+            int choice = Convert.ToInt32(Console.ReadLine());
+            switch (choice)
+            {
+                case 1:
+                    TasksUsage.Task1();
+                    break;
+                case 2:
+                    TasksUsage.Task2();
+                    break;
+                case 3:
+                    TasksUsage.Task3();
+                    break;
+                default:
+                    Console.WriteLine("Task not found.");
+                    break;
+            }
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine("Error: " + e.Message);
+        }
+    }
 }
-Console.WriteLine("Problems 1 ");
-AnyFunc();
-//  приклад класів
-UserClass cl = new UserClass();
-cl.Name = " UserClass top-level ";
-Lab4CSharp.UserClass cl2 = new Lab4CSharp.UserClass();
-cl2.Name = " UserClass namespace Lab4CSharp ";
-Console.WriteLine(cl + "   " + cl2 + "   ");
-
-
-
-/// <summary>
-/// 
-/// Top-level statements must precede namespace and type declarations.
-/// Оператори верхнього рівня мають передувати оголошенням простору імен і типу.
-/// Створення класу(ів) або оголошенням простору імен є закіченням  іструкцій верхнього рівня
-/// 
-/// </summary>
-
-class UserClass
-{
-    public string Name { get; set; }
-};
